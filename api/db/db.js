@@ -2,17 +2,16 @@ const { Sequelize } = require("sequelize");
 const modelProduct = require("./models/product");
 const modelCategory = require("./models/category");
 
-console.log(process.env.DBName, process.env.Username, process.env.Password);
 const db = new Sequelize(
 	//DB name
-	process.env.DBName,
+	process.env.DB_Name,
 	//Username
-	"bsale_test",
+	process.env.DB_User,
 	//password
-	process.env.Password,
+	process.env.DB_Password,
 	{
 		//host
-		host: process.env.Host,
+		host: process.env.DB_Host,
 		dialect: "mysql",
 	}
 );
@@ -24,16 +23,10 @@ const { product, category } = db.models;
 product.belongsTo(category, { foreignKey: "category", as: "categoryId" });
 category.hasMany(product, { foreignKey: "category", as: "categoryId" });
 
-// db.query("SELECT * FROM product", {
-// 	model: product, // pass true here if you have any mapped fields
-// }).then((data) => console.log(data));
-
-// db.getQueryInterface()
-// 	.showAllSchemas()
-// 	.then((tableObj) => {
-// 		console.log("// Tables in database", "==========================");
-// 		console.log(tableObj[0]);
-// 	});
+//keepAlive
+// setInterval(function () {
+// 	db.query("SELECT 1");
+// }, 4800);
 
 module.exports = {
 	...db.models,

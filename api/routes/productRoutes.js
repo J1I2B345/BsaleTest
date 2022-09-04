@@ -1,21 +1,35 @@
 const { Router } = require("express");
 const router = Router();
-const { product, category } = require("../db/db");
+const { product, category: Category } = require("../db/db");
+const axios = require("axios");
 
-router.get("/get", async (req, res) => {
+router.get("/detail/:id", async (req, res) => {
+	const { category } = req.query;
+
 	try {
-		let categories = await product.findAll({
+		const products = await product.findAll({
 			include: [
 				{
-					model: category,
+					model: Category,
 					as: "categoryId",
 					attributes: ["name"],
 				},
 			],
 		});
-		res.json(categories);
+
+		if (category) {
+			const productsCategory = products.filter(
+				(product) => product.categoryId.name === category.trim()
+			);
+			if (productsCategory.length) return res.json(productsCategory);
+			else
+				return res
+					.status(404)
+					.json({ error: "No hay productos con esta categoría" });
+		}
+		return res.json(products);
 	} catch (e) {
-		res.status(400).json(e.message);
+		res.status(400).json({ error: e.message });
 	}
 });
 

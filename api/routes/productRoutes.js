@@ -6,37 +6,39 @@ const axios = require("axios");
 router.get("/", async (req, res) => {
 	const { category } = req.query;
 	try {
-		const products = await product.findAll({
-			include: [
-				{
-					model: Category,
-					as: "categoryId",
-					attributes: ["name"],
-				},
-			],
-		});
-
+		if (!category) {
+			const products = await product.findAll({});
+			if (products.length) return res.json(products);
+			return res.status(404).json({ error: "No hay productos que mostrar" });
+		}
 		if (category) {
+			const products = await product.findAll({
+				include: [
+					{
+						model: Category,
+						as: "categoryId",
+						attributes: ["name"],
+					},
+				],
+			});
 			const productsCategory = products.filter(
 				(product) => product.categoryId.name === category.trim()
 			);
 			if (productsCategory.length) return res.json(productsCategory);
-			else
-				return res
-					.status(404)
-					.json({ error: "No hay productos de esta categoría" });
+			return res
+				.status(404)
+				.json({ error: "No hay productos de esta categoría" });
 		}
-		return res.json(products);
 	} catch (e) {
 		res.status(400).json({ error: e.message });
 	}
 });
 
-router.get("/detail/:id", async (req, res) => {
-	const { id } = req.id;
+router.get("/:id", async (req, res) => {
+	const { id } = req.params;
 	try {
 		const productFound = await product.findOne({
-			where: { id },
+			where: { id: Number(id) },
 			include: [
 				{
 					model: Category,

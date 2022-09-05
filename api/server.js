@@ -19,7 +19,7 @@ server.use((req, res, next) => {
 	next();
 });
 
-server.use("api/product", productRoutes);
-server.use("api/category", categoryRoutes);
+server.use("/api/products", productRoutes);
+server.use("/api/categories", categoryRoutes);
 
 module.exports = server;

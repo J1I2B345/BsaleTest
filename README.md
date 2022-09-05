@@ -29,6 +29,11 @@ MySQL
 
 El proyecto tiene dos carpetas: `api` and `client`.
 
+Ambos estan deployados:
+
+- api: [https://backend-ecommerce-bsale.herokuapp.com/]()
+- client: [https://ecommerce-bsale-test.vercel.app/]()
+
 Dentro de `api` se debe crear un archivo llamado: `.env` el cual debe tener el siguiente formato:
 
 ```
@@ -136,6 +141,28 @@ Una vez realizado el Backend se comenzó a trabajar en el Frontend. Fue realizad
 
 Contiene el Navbar. Tiene un botón que despliega el menú para seleccionar las categorías de los objetos y así mostrarlos. También tiene le logo de Bsale que redirige al home, un campo para ingresar palabras para buscar los productos por nombre, el correspondiente botón para buscar y el carrito para ver lo seleccionado.
 
+### _Aside:_
+
+Barra lateral que se muestra con las categorías que se pueden seleccionar.
+
 ### _Zona donde se exhiben los productos:_
 
 Muestra todos los productos, los que pertenezcan a la categoría seleccionada o los que se hayan buscado en el search bar.
+
+Si se clickea sobre la imagen lo llevará a los detalles.
+
+Junto al precio se encuentra un ícono de un carrito de compras desde donde se puede ir directamente a la sección de agregarlo al carrito y seleccionar la cantidad requerida.
+
+### _Detalles del producto:_
+
+Aquí se puede ver una imagen más grande del producto y seleccionar agregar al carrito.
+
+### _Detalles del producto:_
+
+Aquí se puede ver una imagen más grande del producto y seleccionar agregar al carrito.
+
+### _Carrito de compras:_
+
+Se puede ver la cantidad de productos solicitados y modificar la cantidad requerida o eliminar el producto de la lista.
+
+Una vez finalizada la selección se puede clickear en el botón de checkout. Este botón llevaría al método de pago y limpia el carrito.

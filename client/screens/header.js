@@ -2,11 +2,6 @@ import { parseRequestUrl } from "../src/utils";
 
 const Header = {
 	render: () => {
-		let value = "";
-		const request = parseRequestUrl();
-		if (request.name === "name") {
-			value = request.value;
-		}
 		return `
         <div class="brand">
             <button id= "aside-open-button"> 
@@ -16,7 +11,7 @@ const Header = {
         </div>
         <div class="search"> 
             <form class="search-form" id= "search-form"> 
-                <input type="text" name="q" id="q" value= "${value || ""}" />
+                <input type="text" name="q" id="q" value= "" />
                 <button type="submit"> <i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>

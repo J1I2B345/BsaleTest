@@ -6,7 +6,6 @@ const ProductDetail = {
 	render: async () => {
 		const request = parseRequestUrl();
 		let product = await getProduct(request.id);
-		console.log(product);
 		if (product.error) {
 			return `<div class="product" style="font-size: 2rem"> ${product.error}</div>`;
 		} else {

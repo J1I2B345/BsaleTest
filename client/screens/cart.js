@@ -33,9 +33,8 @@ const removeFromCart = (id) => {
 const Cart = {
 	after_render: () => {
 		const qtySelects = document.getElementsByClassName("qty-select");
-		console.log(qtySelects);
+
 		Array.from(qtySelects).forEach((qtySelect) => {
-			console.log(qtySelects, qtySelect);
 			qtySelect.addEventListener("change", (e) => {
 				const item = getCartItems().find((x) => x.id == qtySelect.id);
 				addToCart({ ...item, qty: Number(e.target.value) }, true);
@@ -62,7 +61,7 @@ const Cart = {
 			addToCart({ ...product.data, qty: 1 });
 		}
 		const cartItems = getCartItems();
-		console.log(cartItems);
+
 		return `
     <div class="content cart">
       <div class="cart-list">

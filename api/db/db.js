@@ -20,15 +20,15 @@ const db =
 						min: 1,
 						idle: 10000,
 					},
-					// dialectOptions: {
-					// 	ssl: {
-					// 		require: true,
-					// 		// Ref.: https://github.com/brianc/node-postgres/issues/2009
-					// 		rejectUnauthorized: false,
-					// 	},
-					// 	keepAlive: true,
-					// },
-					// ssl: true,
+					dialectOptions: {
+						ssl: {
+							require: true,
+							// Ref.: https://github.com/brianc/node-postgres/issues/2009
+							rejectUnauthorized: false,
+						},
+						keepAlive: true,
+					},
+					ssl: true,
 				}
 		  )
 		: new Sequelize(
@@ -47,14 +47,14 @@ const db =
 						min: 1,
 						idle: 10000,
 					},
-					// dialectOptions: {
-					// 	ssl: {
-					// 		require: true,
-					// 		// Ref.: https://github.com/brianc/node-postgres/issues/2009
-					// 		rejectUnauthorized: false,
-					// 	},
-					// },
-					// ssl: true,
+					dialectOptions: {
+						ssl: {
+							require: true,
+							// Ref.: https://github.com/brianc/node-postgres/issues/2009
+							rejectUnauthorized: false,
+						},
+					},
+					ssl: true,
 				}
 		  );
 

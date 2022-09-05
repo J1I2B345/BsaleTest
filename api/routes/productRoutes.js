@@ -4,30 +4,29 @@ const { product, category: Category } = require("../db/db");
 const axios = require("axios");
 
 router.get("/", async (req, res) => {
-	const { category } = req.query;
+	const { category, name } = req.query;
 	try {
-		if (!category) {
+		if (!category && !name) {
 			const products = await product.findAll({});
 			if (products.length) return res.json(products);
 			return res.status(404).json({ error: "No hay productos que mostrar" });
 		}
 		if (category) {
 			const products = await product.findAll({
-				include: [
-					{
-						model: Category,
-						as: "categoryId",
-						attributes: ["name"],
-					},
-				],
+				where: { category: Number(category) },
 			});
-			const productsCategory = products.filter(
-				(product) => product.categoryId.name === category.trim()
-			);
-			if (productsCategory.length) return res.json(productsCategory);
+			if (products.length) return res.json(products);
 			return res
 				.status(404)
 				.json({ error: "No hay productos de esta categoría" });
+		}
+		if (name) {
+			const products = await product.findAll({});
+			const productsFiltered = products.filter((e) =>
+				e.name.toLowerCase().includes(name.toLowerCase())
+			);
+			if (productsFiltered.length) return res.json(productsFiltered);
+			return res.status(404).json({ error: "No hay productos con ese nombre" });
 		}
 	} catch (e) {
 		res.status(400).json({ error: e.message });

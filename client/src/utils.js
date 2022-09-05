@@ -19,11 +19,16 @@ export const parseRequestUrl = () => {
 	//if the url was like the line 4 => q= ["category", "pisco"]
 	const q = queryString.split("=");
 	return {
-		//from url
+		//from url /product/:id
+		// [product]
 		resource: r[1],
+		//[:id]
 		id: r[2],
 		//from query
+		//?q=shoes
+		//[q]
 		name: q[0],
+		//[shoes]
 		value: q[1],
 	};
 };
@@ -32,7 +37,5 @@ export const parseRequestUrl = () => {
 export const rerender = async (component) => {
 	document.getElementById("main-container").innerHTML =
 		await component.render();
-
-	//this would act like "component Did Mount"
 	await component.after_render();
 };

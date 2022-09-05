@@ -1,7 +1,6 @@
 const { Router } = require("express");
 const router = Router();
 const { product, category: Category } = require("../db/db");
-const axios = require("axios");
 
 router.get("/", async (req, res) => {
 	const { category, name } = req.query;

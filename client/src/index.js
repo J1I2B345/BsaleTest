@@ -10,6 +10,7 @@ import ProductDetail from "../screens/productDetail";
 const routes = {
 	"/": Home,
 	"/product/:id": ProductDetail,
+	"/cart/:id": Cart,
 	"/cart": Cart,
 };
 

@@ -20,17 +20,24 @@ export const getProducts = async (searchKeyword) => {
 		let products = await axios.get("http://localhost:3010/api/products");
 		return products;
 	} catch (e) {
-		return { error: e.message || error.response.data.message };
+		return { error: e.response.data.message || e.message };
 	}
 };
 
 export const getProduct = async (id) => {
-	let product = await axios.get(`http://localhost:3010/api/products/${id}`);
-
-	return product;
+	try {
+		let product = await axios.get(`http://localhost:3010/api/products/${id}`);
+		return product;
+	} catch (e) {
+		return { error: e.response.data.message || e.message };
+	}
 };
 
 export const getCategories = async () => {
-	let categories = await axios.get(`http://localhost:3010/api/categories/`);
-	return categories;
+	try {
+		let categories = await axios.get(`http://localhost:3010/api/categories/`);
+		return categories;
+	} catch (e) {
+		return { error: e.response.data.message || e.message };
+	}
 };

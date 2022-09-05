@@ -6,12 +6,12 @@ const ProductDetail = {
 	render: async () => {
 		const request = parseRequestUrl();
 		let product = await getProduct(request.id);
-
+		console.log(product);
 		if (product.error) {
-			return `<div> ${product.error}</div>`;
-		}
-		product = product.data;
-		return `
+			return `<div class="product" style="font-size: 2rem"> ${product.error}</div>`;
+		} else {
+			product = product.data;
+			return `
 	      	<div class="content">
 	          	<div class="details">
 	              	<div class="details-image">
@@ -28,14 +28,15 @@ const ProductDetail = {
 					<div class="details-action">
 	            	  	    <ul>
 	            	  	      	<li style="text-align: center">
-	            	  	        Price: $${product.price}
+	            	  	        Precio: $${product.price}
 	            	  	      	</li>
-	            	  	    	<button id="add-button" class="fw primary">Add to Cart </div>
+	            	  	    	<button id="add-button" class="fw primary">Agregar al carrito </div>
 	            	  	    </ul>
 	            	</div>
 				</div>
 	      	</div>
 	      `;
+		}
 	},
 
 	after_render: () => {

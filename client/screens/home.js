@@ -34,8 +34,11 @@ const Home = {
 							${e.name}
 						</a> 
 					</div>
-					<div class="product-price"> 
-					$${(e.price * (100 - e.discount)) / 100}
+					<div class="product-price" > 
+					<span style="font-size: 2rem"> $${(e.price * (100 - e.discount)) / 100} </span>
+					<span style="font-size: 2rem"> <a href="#/cart/${
+						e.id
+					}"> <i class="fa-solid fa-cart-plus"></i></a></span>
 					</div>
 					</div>
 				</li>`

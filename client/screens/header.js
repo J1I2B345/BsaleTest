@@ -12,7 +12,7 @@ const Header = {
             <button id= "aside-open-button"> 
                  &#9776;
             </button>  
-            <a href="/#/"> Bsale</a>
+            <a href="/#/"> <img src="https://dojiw2m9tvv09.cloudfront.net/4/8/img-logos-logo-bsale-blanco-mobile.png?2898"/></a>
         </div>
         <div class="search"> 
             <form class="search-form" id= "search-form"> 

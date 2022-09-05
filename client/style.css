@@ -28,6 +28,9 @@ textarea {
 	border: 0.1rem #808080 solid;
 	border-radius: 0.5rem;
 }
+.fw {
+	width: 100%;
+}
 input:hover,
 button:hover {
 	border: 0.1rem #404040 solid;
@@ -89,12 +92,13 @@ button.primary {
 
 .details {
 	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	flex-wrap: wrap;
 }
 .details-image {
-	flex: 2 1 30rem;
+	flex: 2 1;
 }
 .details-image img {
 	max-width: 30rem;
@@ -102,7 +106,7 @@ button.primary {
 }
 .details-info,
 .details-action {
-	flex: 1 1 30rem;
+	flex: 1 1;
 }
 .details-info ul,
 .details-action ul {
@@ -249,4 +253,19 @@ ul.categories {
 	border: none;
 	color: #ffffff;
 	cursor: pointer;
+}
+
+.checkout-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.details-action {
+	max-width: 25rem;
+}
+@media (max-width: 530px) {
+	.search {
+		display: none;
+	}
 }

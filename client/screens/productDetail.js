@@ -12,11 +12,6 @@ const ProductDetail = {
 		}
 		product = product.data;
 		return `
-			<div class="back-to-result">
-	            <a id="bt" href="/#/"> 
-				 	<button class="fw primary">Volver a página principal</button>
-				</a>
-	    	</div>
 	      	<div class="content">
 	          	<div class="details">
 	              	<div class="details-image">
@@ -28,15 +23,17 @@ const ProductDetail = {
                   			${product.categoryId.name.toUpperCase()}
                   		</h4>
 	              	</div>
-	              	<div class="details-action">
-	              	    <ul>
-	              	      	<li>
-	              	        Price: $${product.price}
-	              	      	</li>
-	              	    	<button id="add-button" class="fw primary">Add to Cart </div>
-	              	    </ul>
-	              	</div>
 	        	</div>
+				<div class="checkout-container">
+					<div class="details-action">
+	            	  	    <ul>
+	            	  	      	<li style="text-align: center">
+	            	  	        Price: $${product.price}
+	            	  	      	</li>
+	            	  	    	<button id="add-button" class="fw primary">Add to Cart </div>
+	            	  	    </ul>
+	            	</div>
+				</div>
 	      	</div>
 	      `;
 	},

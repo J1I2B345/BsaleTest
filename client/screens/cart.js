@@ -49,6 +49,9 @@ const Cart = {
 		});
 		document.getElementById("checkout-button").addEventListener("click", () => {
 			alert("Finalizaste la compra!");
+			deleteCartItems();
+			document.location.hash = "/cart";
+			rerender(Cart);
 		});
 	},
 	render: async () => {

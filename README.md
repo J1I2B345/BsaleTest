@@ -153,6 +153,8 @@ Contiene el Navbar. Tiene un botón que despliega el menú para seleccionar las 
 ### _Aside:_
 
 Barra lateral que se muestra con las categorías que se pueden seleccionar.
+
+
 ![Frontend Aside](https://user-images.githubusercontent.com/103390530/188424969-0a848d0f-2709-49ea-9033-bf45b14eab12.png)
 
 

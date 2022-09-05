@@ -15,7 +15,6 @@ const db =
 					//host
 					host: process.env.DB_Host,
 					dialect: "mysql",
-					port: 5432,
 					pool: {
 						max: 3,
 						min: 1,
@@ -48,14 +47,14 @@ const db =
 						min: 1,
 						idle: 10000,
 					},
-					dialectOptions: {
-						ssl: {
-							require: true,
-							// Ref.: https://github.com/brianc/node-postgres/issues/2009
-							rejectUnauthorized: false,
-						},
-					},
-					ssl: true,
+					// dialectOptions: {
+					// 	ssl: {
+					// 		require: true,
+					// 		// Ref.: https://github.com/brianc/node-postgres/issues/2009
+					// 		rejectUnauthorized: false,
+					// 	},
+					// },
+					// ssl: true,
 				}
 		  );
 

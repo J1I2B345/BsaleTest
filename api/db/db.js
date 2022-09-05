@@ -26,7 +26,6 @@ const db =
 							// Ref.: https://github.com/brianc/node-postgres/issues/2009
 							rejectUnauthorized: false,
 						},
-						keepAlive: true,
 					},
 					ssl: true,
 				}

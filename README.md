@@ -34,6 +34,8 @@ Ambos estan deployados:
 - api: [https://backend-ecommerce-bsale.herokuapp.com/]()
 - client: [https://ecommerce-bsale-test.vercel.app/]()
 
+Si quiere probarse corriendo el proyecto en la PC debería realizar los pasos que se mencionan a continuación.
+
 Dentro de `api` se debe crear un archivo llamado: `.env` el cual debe tener el siguiente formato:
 
 ```

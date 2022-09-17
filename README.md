@@ -31,8 +31,8 @@ El proyecto tiene dos carpetas: `api` and `client`.
 
 Ambos estan deployados:
 
-- api: [https://backend-ecommerce-bsale.herokuapp.com/]()
-- client: [https://ecommerce-bsale-test.vercel.app/]()
+- api: [https://backend-ecommerce-bsale.herokuapp.com/](https://backend-ecommerce-bsale.herokuapp.com/ "https://backend-ecommerce-bsale.herokuapp.com/")
+- client: [https://ecommerce-bsale-test.vercel.app/](https://ecommerce-bsale-test.vercel.app/ "https://ecommerce-bsale-test.vercel.app/")
 
 Si quiere probarse corriendo el proyecto en la PC debería realizar los pasos que se mencionan a continuación.
 

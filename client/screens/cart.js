@@ -33,7 +33,6 @@ const removeFromCart = (id) => {
 const Cart = {
 	after_render: () => {
 		const qtySelects = document.getElementsByClassName("qty-select");
-
 		Array.from(qtySelects).forEach((qtySelect) => {
 			qtySelect.addEventListener("change", (e) => {
 				const item = getCartItems().find((x) => x.id == qtySelect.id);

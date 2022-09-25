@@ -170,7 +170,6 @@ form.search-form button {
 	float: left;
 	width: 40px;
 	background: #f0c040;
-
 	border-left: none;
 	cursor: pointer;
 	border-top-left-radius: 0;
@@ -178,12 +177,6 @@ form.search-form button {
 }
 form.search-form button:hover {
 	background: #0b7dda;
-}
-/* Clear floats */
-form.search-form::after {
-	content: "";
-	clear: both;
-	display: table;
 }
 
 footer {

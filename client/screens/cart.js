@@ -58,7 +58,9 @@ const Cart = {
 		const stock = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 		if (request.id) {
 			const product = await getProduct(request.id);
-			addToCart({ ...product.data, qty: 1 });
+			if (product) {
+				addToCart({ ...product.data, qty: 1 });
+			}
 		}
 		const cartItems = getCartItems();
 

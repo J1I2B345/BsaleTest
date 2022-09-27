@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const router = Router();
 const { product, category: Category } = require("../db/db");
+const { Op } = require("sequelize");
 
 router.get("/", async (req, res) => {
 	const { category, name } = req.query;
@@ -20,11 +21,14 @@ router.get("/", async (req, res) => {
 				.json({ error: "No hay productos de esta categoría" });
 		}
 		if (name) {
-			const products = await product.findAll({});
-			const productsFiltered = products.filter((e) =>
-				e.name.toLowerCase().includes(name.toLowerCase())
-			);
-			if (productsFiltered.length) return res.json(productsFiltered);
+			const products = await product.findAll({
+				where: {
+					name: {
+						[Op.substring]: [name],
+					},
+				},
+			});
+			if (products.length) return res.json(products);
 			return res.status(404).json({ error: "No hay productos con ese nombre" });
 		}
 	} catch (e) {

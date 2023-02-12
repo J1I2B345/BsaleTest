@@ -1,7 +1,5 @@
 # BsaleTest
 
-1
-
 ## Introducción
 
 Este proyecto fue realizado como prueba técnica para la empresa Bsale. El objetivo era crear un E-commerce desde 0, tanto desde el servidor como el cliente, consumiendo una DB facilitada por la misma empresa.
